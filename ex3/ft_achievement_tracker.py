@@ -3,7 +3,7 @@ import random
 
 def gen_player_achievements(achievements: list) -> set:
 
-    quantity = random.randint(1, 10)
+    quantity = random.randint(4, 6)
     player_achievements = set(random.sample(achievements, quantity))
     return (player_achievements)
 
