@@ -9,7 +9,9 @@ def gen_event() -> typing.Generator[tuple[str, str], None, None]:
         yield (random.choice(players), random.choice(actions))
 
 
-def consume_event(new_list: list[tuple[str, str]]) -> typing.Generator[tuple[str, str], None, None]:
+def consume_event(
+        new_list: list[tuple[str, str]]
+        ) -> typing.Generator[tuple[str, str], None, None]:
     while len(new_list) > 0:
         index = random.randrange(len(new_list))
         removed = new_list.pop(index)
@@ -26,8 +28,8 @@ def main() -> None:
         new_list.append(next(event))
     print(f"\nBuilt list of 10 events: {new_list}")
 
-    for event in consume_event(new_list):
-        print(f"Got event from list: {event}")
+    for consumed_event in consume_event(new_list):
+        print(f"Got event from list: {consumed_event}")
         print(f"Remains in list: {new_list}")
 
 
